@@ -1,45 +1,74 @@
 class Point{
 
-    constructor(x, y, speedY, color){
+    constructor(x, y, speedX, speedY, color){
         this.x = x;
         this.y = y;
+        this.speedX = speedX;
         this.speedY = speedY;
         this.color = color;
     };
 
     draw(ctx){
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, 6, 6);
+        ctx.fillRect(this.x, this.y, 30, 4);
     };
 
-    static generatePointUp(canvasWidth){
+    static generateRandomUpPoint(){
 
-        const color = `rgb(150, 0, 20)`;
+        let color = `rgb(${Math.random()*255}, 0, 0)`;
 
-        const randomX1 = Math.random()*canvasWidth;
-        const Y1 = 0;
+        let x = 400;
+        let y = 350;
 
-        const speedY1 = (Math.random()*2)-1;
+        let speedX = (Math.random()*18)-9;
+        let speedY = -6;
 
-        const newPoint1 = new Point(randomX1, Y1, speedY1, color);
+        let newPoint = new Point(x, y, speedX, speedY, color);
 
-        return newPoint1;
+        return newPoint;
 
     };
 
-    static generatePointDown(canvasWidth){
+    static generateRandomDownPoint(){
 
-        const color = `rgb(150, 0, 20)`;
+        let color = `rgb(${Math.random()*255}, 0, 0)`;
 
-        const randomX2 = Math.random()*canvasWidth;
-        const Y2 = 800;
+        let x = 400;
+        let y = 450;
 
-        const speedY2 = (Math.random()*-2)+1;
+        let speedX = (Math.random()*18)-9;
+        let speedY = 6;
 
-        const newPoint2 = new Point(randomX2, Y2, speedY2, color);
+        let newPoint = new Point(x, y, speedX, speedY, color);
 
-        return newPoint2;
+        return newPoint;
+
+    };
+
+    changePosition(canvasHeight){
+
+        if(this.y < 0){
+            this.speedX = (Math.random()*18)-9;
+            this.x = 400;
+            this.y = 350;
+        };
+
+        if(this.y > canvasHeight){
+            this.speedX = (Math.random()*18)-9;
+            this.x = 400;
+            this.y = 450;
+        };
+
+        this.x += this.speedX;
+        this.y += this.speedY;
 
     };
 
 };
+
+
+
+
+
+
+

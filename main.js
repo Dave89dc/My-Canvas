@@ -31,18 +31,18 @@ const point = {
 // let y = Math.random()*myCanvas.height;
 // let r = Math.random()*100;
 
-let pointUpX = 400;
-let pointUpY = 350;
-let pointDownX = 400;
-let pointDownY = 450;
+// let pointUpX = 400;
+// let pointUpY = 350;
+// let pointDownX = 400;
+// let pointDownY = 450;
 
 function step(){
     cxt.fillStyle = 'rgb(215, 215, 215)';
     cxt.fillRect(0, 0, myCanvas.width, myCanvas.height);
     cxt.fillStyle = 'white';
-    cxt.fillRect(290, 380, 220, 20);
-    cxt.beginPath();
+    cxt.fillRect(290, 400, 220, 20);
     generateRandom();
+    cxt.beginPath();
     cxt.arc(point.x, point.y, 100, 0, 2*Math.PI);
     point.x += (Math.random()*2)-1;
     point.y += (Math.random()*2)-1;
@@ -51,7 +51,6 @@ function step(){
     cxt.stroke();
     cxt.fillStyle = 'rgb(30, 144, 255)';
     cxt.fill();
-    
     
     window.requestAnimationFrame(step);
 };
@@ -78,36 +77,37 @@ window.requestAnimationFrame(step);
 // cxt.stroke();
 
 
-let speedX = (Math.random()*18)-9;
+// let speedX = (Math.random()*18)-9;
+// let speedDownX = (Math.random()*18)-9;
 
-function generateRandom(){
+// function generateRandom(){
 
-    cxt.fillStyle = `rgb(${Math.random()*255}, 0, 0)`;
-    cxt.fillRect(pointUpX, pointUpY, 30, 4);
+//     cxt.fillStyle = `rgb(${Math.random()*255}, 0, 0)`;
+//     cxt.fillRect(pointUpX, pointUpY, 30, 4);
 
-    cxt.fillStyle = `rgb(${Math.random()*255}, 0, 0)`;
-    cxt.fillRect(pointDownX, pointDownY, 30, 4);
+//     cxt.fillStyle = `rgb(${Math.random()*255}, 0, 0)`;
+//     cxt.fillRect(pointDownX, pointDownY, 30, 4);
 
-    let speedUpY = -6;
-    let speedDownY = 6;
+//     let speedUpY = -6;
+//     let speedDownY = 6;
 
-    if(pointUpY < 0){
-        speedX = (Math.random()*18)-9;
-        pointUpX = 400;
-        pointUpY = 350;
-    };
+//     if(pointUpY < 0){
+//         speedX = (Math.random()*18)-9;
+//         pointUpX = 400;
+//         pointUpY = 350;
+//     };
 
-    if(pointDownY > myCanvas.height){
-        speedX = (Math.random()*18)-9;
-        pointDownX = 400;
-        pointDownY = 450;
-    };
+//     if(pointDownY > myCanvas.height){
+//         speedDownX = (Math.random()*18)-9;
+//         pointDownX = 400;
+//         pointDownY = 450;
+//     };
 
-    pointUpX += speedX;
-    pointUpY += speedUpY;
+//     pointUpX += speedX;
+//     pointUpY += speedUpY;
 
-    pointDownX += speedX;
-    pointDownY += speedDownY;
+//     pointDownX += speedDownX;
+//     pointDownY += speedDownY;
 
-};
+// };
 
